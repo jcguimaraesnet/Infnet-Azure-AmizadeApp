@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroup')]/providers/Microsoft.Sql/servers/amizadewebmvcdbserver/databases/Infnet.Etapa4.Presentation.AmizadeWebMvc_db",
+      "type": "mssql.azure",
+      "connectionId": "AmizadeContext",
+      "secretStore": "AzureAppSettings"
+    },
+    "storage1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroup')]/providers/Microsoft.Storage/storageAccounts/infnetetapa4presentation",
+      "type": "storage.azure",
+      "connectionId": "ConnectionStringStorageAccount",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}
