@@ -39,12 +39,12 @@ namespace Amizade.Domain.Services.Services
 
         public async Task UpdateAsync(AmigoEntity amigoEntity, Stream stream)
         {
-            //TODO: evoluir
+            //TODO: improvement
         }
 
         public async Task DeleteAsync(AmigoEntity amigoEntity)
         {
-            //TODO: evoluir
+            //TODO: improvement
         }
 
     }

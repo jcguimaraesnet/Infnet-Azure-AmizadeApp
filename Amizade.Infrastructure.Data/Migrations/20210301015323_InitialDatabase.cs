@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Amizade.Infrastructure.Data.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class InitialDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,7 +15,8 @@ namespace Amizade.Infrastructure.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(nullable: true),
                     DataNascimento = table.Column<DateTime>(nullable: false),
-                    Parente = table.Column<bool>(nullable: false)
+                    Parente = table.Column<bool>(nullable: false),
+                    ImageUri = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

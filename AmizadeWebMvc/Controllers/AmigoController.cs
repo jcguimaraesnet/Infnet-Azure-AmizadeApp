@@ -1,7 +1,5 @@
 ﻿using Amizade.Domain.Model.Entities;
-using Amizade.Domain.Model.Interfaces.Infrastructure;
 using Amizade.Domain.Model.Interfaces.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
@@ -98,9 +96,7 @@ namespace Infnet.Etapa4.Presentation.AmizadeWebMvc.Controllers
             {
                 try
                 {
-                    var file = Request.Form.Files.SingleOrDefault();
-
-                    await _domainService.UpdateAsync(amigoEntity, file?.OpenReadStream());
+                    //TODO: improvement
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -140,8 +136,7 @@ namespace Infnet.Etapa4.Presentation.AmizadeWebMvc.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var amigoEntity = await _domainService.GetByIdAsync(id);
-            await _domainService.DeleteAsync(amigoEntity);
+            //TODO: improvement
 
             return RedirectToAction(nameof(Index));
         }
