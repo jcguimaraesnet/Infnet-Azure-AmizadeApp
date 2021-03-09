@@ -47,6 +47,7 @@ namespace Amizade.Domain.Services.Services
 
                 var blobUri = await _blobService.UploadAsync(stream);
                 amigoEntity.ImageUri = blobUri.ToString();
+
             }
 
             await _repository.UpdateAsync(amigoEntity);
