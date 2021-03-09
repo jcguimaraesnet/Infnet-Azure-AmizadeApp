@@ -26,7 +26,7 @@ namespace Amizade.Infrastructure.Data.Repositories
 
         public async Task<AmigoEntity> GetByIdAsync(int id)
         {
-            return await _context.AmigoEntity.SingleOrDefaultAsync(m => m.Id == id);
+            return await _context.AmigoEntity.AsNoTracking().SingleOrDefaultAsync(m => m.Id == id);
         }
 
         public async Task InsertAsync(AmigoEntity amigoEntity)

@@ -96,7 +96,11 @@ namespace Infnet.Etapa4.Presentation.AmizadeWebMvc.Controllers
             {
                 try
                 {
-                    //TODO: improvement
+                    var file = Request.Form.Files.SingleOrDefault();
+
+                    await _domainService.UpdateAsync(amigoEntity, file?.OpenReadStream());
+
+                    return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -109,7 +113,6 @@ namespace Infnet.Etapa4.Presentation.AmizadeWebMvc.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
             }
             return View(amigoEntity);
         }
@@ -136,7 +139,14 @@ namespace Infnet.Etapa4.Presentation.AmizadeWebMvc.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            //TODO: improvement
+            var amigo = await _domainService.GetByIdAsync(id);
+
+            if (amigo == null)
+            {
+                return NotFound();
+            }
+
+            await _domainService.DeleteAsync(amigo);
 
             return RedirectToAction(nameof(Index));
         }

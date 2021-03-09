@@ -2,6 +2,7 @@
 using Amizade.Domain.Model.Interfaces.Infrastructure;
 using Amizade.Domain.Model.Interfaces.Repositories;
 using Amizade.Domain.Model.Interfaces.Services;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -39,12 +40,22 @@ namespace Amizade.Domain.Services.Services
 
         public async Task UpdateAsync(AmigoEntity amigoEntity, Stream stream)
         {
-            //TODO: improvement
+            if (stream != null)
+            {
+                var amigoCurrent = await _repository.GetByIdAsync(amigoEntity.Id);
+                await _blobService.DeleteAsync(amigoCurrent.ImageUri);
+
+                var blobUri = await _blobService.UploadAsync(stream);
+                amigoEntity.ImageUri = blobUri.ToString();
+            }
+
+            await _repository.UpdateAsync(amigoEntity);
         }
 
         public async Task DeleteAsync(AmigoEntity amigoEntity)
         {
-            //TODO: improvement
+            await _blobService.DeleteAsync(amigoEntity.ImageUri);
+            await _repository.DeleteAsync(amigoEntity);
         }
 
     }
