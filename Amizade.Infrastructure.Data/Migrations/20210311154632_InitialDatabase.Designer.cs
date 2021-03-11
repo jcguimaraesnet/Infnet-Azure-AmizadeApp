@@ -4,14 +4,16 @@ using Amizade.Infrastructure.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Amizade.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(AmizadeContext))]
-    partial class AmizadeContextModelSnapshot : ModelSnapshot
+    [Migration("20210311154632_InitialDatabase")]
+    partial class InitialDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,9 +39,6 @@ namespace Amizade.Infrastructure.Data.Migrations
 
                     b.Property<bool>("Parente")
                         .HasColumnType("bit");
-
-                    b.Property<DateTime?>("UltimaVisualizacao")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 

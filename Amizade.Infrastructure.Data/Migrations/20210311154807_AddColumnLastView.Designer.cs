@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Amizade.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(AmizadeContext))]
-    [Migration("20210301015323_InitialDatabase")]
-    partial class InitialDatabase
+    [Migration("20210311154807_AddColumnLastView")]
+    partial class AddColumnLastView
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,6 +39,9 @@ namespace Amizade.Infrastructure.Data.Migrations
 
                     b.Property<bool>("Parente")
                         .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UltimaVisualizacao")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 

@@ -12,11 +12,13 @@ namespace Amizade.Domain.Services.Services
     {
         private readonly IAmigoRepository _repository;
         private readonly IBlobService _blobService;
+        private readonly IFunctionService _functionService;
 
-        public AmigoService(IAmigoRepository repository, IBlobService blobService)
+        public AmigoService(IAmigoRepository repository, IBlobService blobService, IFunctionService functionService)
         {
             _repository = repository;
             _blobService = blobService;
+            _functionService = functionService;
         }
 
         public async Task<IEnumerable<AmigoEntity>> GetAllAsync()
@@ -26,7 +28,10 @@ namespace Amizade.Domain.Services.Services
 
         public async Task<AmigoEntity> GetByIdAsync(int id)
         {
-            return await _repository.GetByIdAsync(id);
+            await _functionService.InvokeAsync(new { Id = id });
+            var amigoTask = _repository.GetByIdAsync(id);
+
+            return amigoTask.Result;
         }
 
         public async Task InsertAsync(AmigoEntity amigoEntity, Stream stream)

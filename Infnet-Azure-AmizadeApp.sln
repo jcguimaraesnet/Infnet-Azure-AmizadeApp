@@ -21,6 +21,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infrastructure", "3 - I
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amizade.Infrastructure.Services", "Amizade.Infrastructure.Services\Amizade.Infrastructure.Services.csproj", "{FA911EB2-E001-4B71-B32D-6A691A319FEB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Functions", "4 - Functions", "{00B777B9-737A-4C87-9519-6A21FF37F456}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionApp", "FunctionApp\FunctionApp.csproj", "{743E409A-BB03-41F8-92A9-4C26D4D12E22}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,10 @@ Global
 		{FA911EB2-E001-4B71-B32D-6A691A319FEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA911EB2-E001-4B71-B32D-6A691A319FEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA911EB2-E001-4B71-B32D-6A691A319FEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{743E409A-BB03-41F8-92A9-4C26D4D12E22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{743E409A-BB03-41F8-92A9-4C26D4D12E22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{743E409A-BB03-41F8-92A9-4C26D4D12E22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{743E409A-BB03-41F8-92A9-4C26D4D12E22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +70,7 @@ Global
 		{BDC00957-6B9F-4AEB-B491-1EA073A7CCC2} = {FCF4A735-0B47-4581-B9DE-53855DE3A45F}
 		{0B0FC710-0F90-4160-BA12-67DB460E2B08} = {FCF4A735-0B47-4581-B9DE-53855DE3A45F}
 		{FA911EB2-E001-4B71-B32D-6A691A319FEB} = {FCF4A735-0B47-4581-B9DE-53855DE3A45F}
+		{743E409A-BB03-41F8-92A9-4C26D4D12E22} = {00B777B9-737A-4C87-9519-6A21FF37F456}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C8A1F9E1-1934-4BCC-A1B7-E2701F45450E}

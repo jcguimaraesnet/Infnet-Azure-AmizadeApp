@@ -23,6 +23,7 @@ namespace Amizade.Domain.Model.Entities
         [DisplayName("Foto")]
         public string ImageUri { get; set; }
 
-
+        [DisplayName("Última Visualização")]
+        public DateTime? UltimaVisualizacao { get; set; }
     }
 }

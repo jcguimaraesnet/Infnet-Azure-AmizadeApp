@@ -5,6 +5,7 @@ using Amizade.Domain.Services.Services;
 using Amizade.Infrastructure.Data.Context;
 using Amizade.Infrastructure.Data.Repositories;
 using Amizade.Infrastructure.Services.Blob;
+using Amizade.Infrastructure.Services.Functions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,7 +23,11 @@ namespace Amizade.Infrastructure.IoC
             services.AddScoped<IAmigoService, AmigoService>();
 
             services.AddScoped<IBlobService, BlobService>(provider => 
-            new BlobService(configuration.GetValue<string>("ConnectionStringStorageAccount")));
+                new BlobService(configuration.GetValue<string>("ConnectionStringStorageAccount")));
+
+            services.AddScoped<IFunctionService, FunctionService>(provider =>
+                new FunctionService(configuration.GetValue<string>("FunctionBaseAddress")));
+
         }
     }
 }
