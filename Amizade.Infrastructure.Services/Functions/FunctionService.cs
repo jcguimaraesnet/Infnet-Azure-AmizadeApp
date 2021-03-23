@@ -20,7 +20,9 @@ namespace Amizade.Infrastructure.Services.Functions
         public async Task InvokeAsync(object objeto)
         {
             var httpClient = new HttpClient();
+
             var json = JsonConvert.SerializeObject(objeto);
+
             var requestData = new StringContent(json, Encoding.UTF8, "application/json");
             _ = await httpClient.PostAsync(_baseAddress, requestData);
         }
